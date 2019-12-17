@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Tabelas</title>
+	<link rel="stylesheet" type="text/css" href="estilo.css">
+
+<script type="text/javascript">
+	$(document).ready(function(){
+
+
+	$(".mask-tel").mask("(99) 9999-9999?9");
+
+
+	});
+
+</script>
+
+</head>
+
+<body>
+	<h2>Formularios</h2>
+
+	<form>
+		
+		<fieldset>
+			
+			<legend> Detalhes do contato</legend>
+
+			<div>
+				
+				<label for="nome"> Nome: </label>
+				<input type="text" name="nome" id="nome">
+
+			</div>
+
+			<div>
+				
+				<label for="email"> E-mail: </label>
+				<input type="text" name="email" id="email">
+
+			</div>
+
+			<div>
+				
+				<label for="url"> Tel: </label>
+				<input class="mask-tel" type="text" name="url" id="url">
+
+			</div>
+
+		</fieldset>
+
+		<fieldset>
+			<legend> Comentarios </legend>
+
+			<div>
+				
+				<label for="msg"> Mensagem </label>
+				<textarea name="msg" id="msg"> </textarea>
+
+			</div>
+
+
+		</fieldset>
+
+		<fieldset>
+			
+			<legend>Lembrar de mim</legend>
+
+			<div>
+				
+				<label>
+					
+					<input class="radio" type="radio" name="lembrar" id="sim">Sim
+
+				</label>
+
+
+			</div>
+
+			<div>
+				
+				<label>
+					
+					<input class="radio" type="radio" name="lembrar" id="nao">Não
+
+				</label>
+
+
+			</div>
+
+
+		</fieldset>
+
+		<div>
+				
+				<label>
+					
+					<input class="submit" type="submit" name="submit" id="botao">
+
+				</label>
+
+
+		</div>
+
+
+
+	</form>
+
+
+	
+
+</body>
+
+
+</html>
