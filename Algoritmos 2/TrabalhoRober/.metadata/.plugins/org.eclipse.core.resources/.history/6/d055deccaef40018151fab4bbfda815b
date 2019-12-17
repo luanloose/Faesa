@@ -1,0 +1,61 @@
+package pacote;
+
+public class ItemEmprestimo {
+
+	private int coditem;
+	private int codLivro;
+	private int codPeriodico;
+	private int codEmprestimo;
+	private String datadevol;
+	
+	
+	
+	
+	public ItemEmprestimo(int coditem, int codLivro, int codPeriodico, int codEmprestimo, String datadevol) {
+		super();
+		this.coditem = coditem;
+		this.codLivro = codLivro;
+		this.codPeriodico = codPeriodico;
+		this.codEmprestimo = codEmprestimo;
+		this.datadevol = datadevol;
+	}
+	
+
+	
+	public int getCoditem() {
+		return coditem;
+	}
+	public void setCoditem(int coditem) {
+		this.coditem = coditem;
+	}
+	public int getCodLivro() {
+		return codLivro;
+	}
+	public void setCodLivro(int codLivro) {
+		this.codLivro = codLivro;
+	}
+	public int getCodPeriodico() {
+		return codPeriodico;
+	}
+	public void setCodPeriodico(int codPeriodico) {
+		this.codPeriodico = codPeriodico;
+	}
+	public int getCodEmprestimo() {
+		return codEmprestimo;
+	}
+	public void setCodEmprestimo(int codEmprestimo) {
+		this.codEmprestimo = codEmprestimo;
+	}
+	public String getDatadevol() {
+		return datadevol;
+	}
+	public void setDatadevol(String datadevol) {
+		this.datadevol = datadevol;
+	}
+	
+	public String toString() {
+		return "<" + coditem + ">;<" + codLivro + ">;<" + codPeriodico + ">;<" + codEmprestimo + ">;<" + datadevol + ">";
+	}
+
+	
+}

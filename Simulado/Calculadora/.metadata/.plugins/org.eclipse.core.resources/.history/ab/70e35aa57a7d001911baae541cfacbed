@@ -1,0 +1,389 @@
+package pacote;
+
+import javax.swing.border.LineBorder;
+
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.Dimension;
+import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+
+import javax.swing.*;
+import javax.swing.border.Border;
+import java.awt.SystemColor;
+
+public class Calculadora implements ActionListener, KeyListener {
+
+	private JFrame frame;
+	private JTextField textField_Display;
+	private JButton btn_ExcluirTudo;
+	private JButton btn_Apaga1;
+	private JButton btn_7;
+	private JButton btn_8;
+	private JButton btn_9;
+	private JButton btn_div;
+	private JButton btn_4;
+	private JButton btn_5;
+	private JButton btn_6;
+	private JButton btn_Mult;
+	private JButton btn_1;
+	private JButton btn_2;
+	private JButton btn_3;
+	private JButton btn_Menos;
+	private JButton btn_Ponto;
+	private JButton btn_0;
+	private JButton btn_Igual;
+	private JButton btn_Mais;
+	private JButton btn_Radiciacao;
+	private JButton btn_Potencia;
+	private JButton btn_Negacao;
+	private JButton btn_Logaritmo;
+	private JLabel label;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					UIManager.setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel");
+					Calculadora window = new Calculadora();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public Calculadora() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		int R = 50;
+		int G = 50;
+		int B = 50;
+		frame = new JFrame();
+		frame.setSize(new Dimension(305, 357));
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setTitle("Calculadora");
+		frame.setLocationRelativeTo(null);
+
+		JPanel panel = new JPanel();
+		frame.getContentPane().add(panel, BorderLayout.CENTER);
+		panel.setLayout(null);
+		// frame.setSize(297, 351);
+
+		textField_Display = new JTextField();
+		textField_Display.setBounds(0, 0, 299, 65);
+		panel.add(textField_Display);
+		textField_Display.setColumns(10);
+		textField_Display.addKeyListener(this);
+//		textField_Display.setFocusable(true);
+		textField_Display.setBorder(new LineBorder(Color.gray, 0));
+		textField_Display.setBackground(SystemColor.window);
+		textField_Display.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 24));
+		textField_Display.setForeground(SystemColor.controlText);
+		textField_Display.setHorizontalAlignment(SwingConstants.RIGHT);
+
+		JPanel panel_Excluir = new JPanel();
+		panel_Excluir.setBounds(0, 66, 293, 51);
+		panel.add(panel_Excluir);
+		panel_Excluir.setBorder(new LineBorder(Color.white, 0));
+		panel_Excluir.setLayout(new GridLayout(0, 2, 0, 0));
+		
+				btn_Apaga1 = new JButton("Backspace");
+				btn_Apaga1.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+					}
+				});
+				btn_Apaga1.setBackground(SystemColor.scrollbar);
+				btn_Apaga1.setForeground(SystemColor.controlText);
+				panel_Excluir.add(btn_Apaga1);
+
+
+
+		btn_ExcluirTudo = new JButton("C");
+		btn_ExcluirTudo.setForeground(SystemColor.controlText);
+		panel_Excluir.add(btn_ExcluirTudo);
+
+		JPanel panel_Teclado = new JPanel();
+		panel_Teclado.setBounds(0, 117, 305, 219);
+		panel.add(panel_Teclado);
+		panel_Teclado.setLayout(new GridLayout(0, 5, 0, 0));
+		panel_Teclado.setBorder(new LineBorder(new Color(90, 90, 90), 1));
+														
+																btn_Mais = new JButton("+");
+																btn_Mais.setForeground(SystemColor.controlText);
+																panel_Teclado.add(btn_Mais);
+												
+														btn_Menos = new JButton(" -");
+														btn_Menos.setForeground(SystemColor.controlText);
+														panel_Teclado.add(btn_Menos);
+												
+														btn_div = new JButton("/");
+														btn_div.setForeground(SystemColor.controlText);
+														panel_Teclado.add(btn_div);
+												
+														btn_0 = new JButton("0");
+														btn_0.setForeground(SystemColor.controlText);
+														panel_Teclado.add(btn_0);
+												
+														btn_Igual = new JButton("=");
+														btn_Igual.setForeground(SystemColor.controlText);
+														panel_Teclado.add(btn_Igual);
+										
+												btn_Mult = new JButton("*");
+												btn_Mult.setForeground(SystemColor.controlText);
+												panel_Teclado.add(btn_Mult);
+																		
+																				btn_Ponto = new JButton(".");
+																				btn_Ponto.setForeground(SystemColor.controlText);
+																				panel_Teclado.add(btn_Ponto);
+																						
+																								btn_1 = new JButton("1");
+																								btn_1.setForeground(SystemColor.controlText);
+																								panel_Teclado.add(btn_1);
+																				
+																						btn_2 = new JButton("2");
+																						btn_2.setForeground(SystemColor.controlText);
+																						panel_Teclado.add(btn_2);
+																		
+																				btn_3 = new JButton("3");
+																				btn_3.setForeground(SystemColor.controlText);
+																				panel_Teclado.add(btn_3);
+								
+										btn_Logaritmo = new JButton("");
+										btn_Logaritmo.setForeground(SystemColor.controlText);
+										panel_Teclado.add(btn_Logaritmo);
+						
+								btn_Negacao = new JButton("");
+								btn_Negacao.setForeground(SystemColor.controlText);
+								panel_Teclado.add(btn_Negacao);
+								
+										btn_4 = new JButton("4");
+										btn_4.addActionListener(new ActionListener() {
+											public void actionPerformed(ActionEvent e) {
+											}
+										});
+										btn_4.setForeground(SystemColor.controlText);
+										panel_Teclado.add(btn_4);
+						
+								btn_5 = new JButton("5");
+								btn_5.setForeground(SystemColor.controlText);
+								panel_Teclado.add(btn_5);
+				
+						btn_6 = new JButton("6");
+						btn_6.setForeground(SystemColor.controlText);
+						panel_Teclado.add(btn_6);
+		
+				btn_Potencia = new JButton("");
+				btn_Potencia.setForeground(SystemColor.controlText);
+				panel_Teclado.add(btn_Potencia);
+
+		btn_Radiciacao = new JButton("");
+		btn_Radiciacao.setBackground(SystemColor.window);
+		btn_Radiciacao.setForeground(SystemColor.controlText);
+		panel_Teclado.add(btn_Radiciacao);
+						
+								btn_7 = new JButton("7");
+								btn_7.setBackground(Color.WHITE);
+								btn_7.setForeground(SystemColor.controlText);
+								panel_Teclado.add(btn_7);
+				
+						btn_8 = new JButton("8");
+						btn_8.setForeground(SystemColor.controlText);
+						panel_Teclado.add(btn_8);
+		
+				btn_9 = new JButton("9");
+				btn_9.setForeground(SystemColor.controlText);
+				panel_Teclado.add(btn_9);
+
+		for (Component c : panel_Teclado.getComponents()) {
+			((JButton) c).setBackground(new Color(100, 100, 100));
+			((JButton) c).setBorder(new LineBorder(new Color(90, 90, 90), 1));
+			((JButton) c).addActionListener(this);
+			((JButton) c).setFont(new Font(Font.SERIF, Font.BOLD, 18));
+
+		}
+
+		panel_Excluir.setBackground(new Color(90, 90, 90));
+		panel_Excluir.setBorder(new LineBorder(new Color(90, 90, 90), 0));
+
+		panel.setBackground(SystemColor.window);
+		panel.setBorder(new LineBorder(new Color(80, 500, 80), 0));
+		for (Component c : panel_Excluir.getComponents()) {
+			((JButton) c).setBackground(new Color(80, 80, 80));
+			((JButton) c).setBorder(new LineBorder(new Color(90, 90, 90), 1));
+			((JButton) c).addActionListener(this);
+			((JButton) c).setFont(new Font(Font.SERIF, Font.BOLD, 16));
+		}
+
+
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		String key = ((JButton) e.getSource()).getText();
+		switch (key) {
+		case "0":
+		case "1":
+		case "2":
+		case "3":
+		case "4":
+		case "5":
+		case "6":
+		case "7":
+		case "8":
+		case "9":
+			// concatenar os valores digitados
+			CalculadoraOp.coletaOperando(key);
+			textField_Display.setText(CalculadoraOp.getExpressao().toString());
+			break;
+		case "!":
+			String novaExpressao;
+			novaExpressao = CalculadoraOp.getExpressao().toString().replaceAll("\\+", "-").replaceAll(" -", "+");
+			CalculadoraOp.apagaTudo();
+			CalculadoraOp.montaExpressao(novaExpressao);
+			textField_Display.setText(CalculadoraOp.getExpressao().toString());
+			break;
+		case "/":
+		case " -":
+		case "*":
+		case "+":
+		case "L":
+		case "^":
+		case "R":
+			
+			CalculadoraOp.montaExpressao(key);
+			textField_Display.setText(CalculadoraOp.getExpressao().toString());
+			break;
+		case "=":
+			if (CalculadoraOp.getOperacao().toString().equals("^")) {
+				CalculadoraOp.potencia();
+			} else if (CalculadoraOp.getOperacao().toString().equals("L")) {
+				CalculadoraOp.log();
+			} else if (CalculadoraOp.getOperacao().toString().equals("R")) {
+				CalculadoraOp.raiz();
+			} else {
+				CalculadoraOp.ObterSomas();
+			}
+			if (!CalculadoraOp.getErro().isEmpty()) {
+				textField_Display.setText(CalculadoraOp.getErro().toString());
+			} else {
+				textField_Display.setText(CalculadoraOp.getResultado().toString());
+			}
+	
+			break;
+		case ".":
+			CalculadoraOp.coletaOperando(key);
+			
+			textField_Display.setText(CalculadoraOp.getExpressao().toString());
+			break;
+		case "C":
+			textField_Display.setText("");
+			CalculadoraOp.apagaTudo();
+			
+			break;
+		case "Backspace":
+			textField_Display
+					.setText(textField_Display.getText().substring(0, (textField_Display.getText().length() - 1)));
+			CalculadoraOp.apagaTudo();
+			CalculadoraOp.montaExpressao(textField_Display.getText());
+		default:
+			break;
+		}
+	}
+
+	@Override
+	public void keyTyped(KeyEvent e) {
+		String key = String.valueOf(e.getKeyChar());
+		switch (key) {
+		case "0":
+		case "1":
+		case "2":
+		case "3":
+		case "4":
+		case "5":
+		case "6":
+		case "7":
+		case "8":
+		case "9":
+			CalculadoraOp.coletaOperando(key);
+			break;
+		case "/":
+		case "-":
+		case "*":
+		case "+":
+		case "R":
+		case "L":
+		case "^":
+			CalculadoraOp.montaExpressao(key);
+			break;
+		case "!":
+			String novaExpressao;
+			novaExpressao = CalculadoraOp.getExpressao().toString().replaceAll("\\+", "-").replaceAll(" -", "+");
+			CalculadoraOp.apagaTudo();
+			CalculadoraOp.montaExpressao(novaExpressao);
+
+			break;
+		case "=":
+			if (CalculadoraOp.getOperacao().toString().equals("^")) {
+				CalculadoraOp.potencia();
+			} else if (CalculadoraOp.getOperacao().toString().equals("L")) {
+				CalculadoraOp.log();
+			} else if (CalculadoraOp.getOperacao().toString().equals("R")) {
+				CalculadoraOp.raiz();
+			} else {
+				CalculadoraOp.ObterSomas();
+			}
+			if (!CalculadoraOp.getErro().isEmpty()) {
+				textField_Display.setText(CalculadoraOp.getErro().toString());
+			} else {
+				textField_Display.setText(CalculadoraOp.getResultado().toString());
+			}
+
+			break;
+		case ".":
+			CalculadoraOp.coletaOperando(key);
+
+			break;
+		case "C":
+			textField_Display.setText("");
+			CalculadoraOp.apagaTudo();
+			break;
+		case "Backspace":
+			textField_Display
+					.setText(textField_Display.getText().substring(0, (textField_Display.getText().length() - 1)));
+			CalculadoraOp.apagaTudo();
+			CalculadoraOp.montaExpressao(textField_Display.getText());
+		default:
+			e.consume();
+			break;
+		}
+	}
+
+	@Override
+	public void keyPressed(KeyEvent arg0) {
+
+	}
+
+	@Override
+	public void keyReleased(KeyEvent arg0) {
+
+	}
+}

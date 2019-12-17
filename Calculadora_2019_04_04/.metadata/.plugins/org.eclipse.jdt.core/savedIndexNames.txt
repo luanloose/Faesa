@@ -1,0 +1,21 @@
+INDEX VERSION 1.130+/Users/luanloose/Documents/Luan/Calculadora_2019_04_04/.metadata/.plugins/org.eclipse.jdt.core
+288112982.index
+434343615.index
+1241710292.index
+3459828603.index
+2254170629.index
+3766893981.index
+4190343708.index
+941210201.index
+338626639.index
+1809548371.index
+1144384042.index
+4061796439.index
+2723170652.index
+4101167580.index
+1654975474.index
+1271342938.index
+4132254105.index
+1624768958.index
+1460079569.index
+1653335996.index

@@ -1,0 +1,153 @@
+package pacote;
+import java.util.Scanner;
+
+
+public class Principal {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int exit = 1;
+		int op;
+		Scanner scan = new Scanner (System.in);
+		int busca1=0;
+		Arquivos arquivo = new Arquivos();
+		
+
+		
+		
+		do {
+			
+			System.out.printf("Escolha uma opcao de 1 a 10 e aperte ENTER: \n"
+					+ "1 - Cadastrar Usuario\n"
+					+ "2 - Cadastrar Livros\n"
+					+ "3 - Realizar Emprestimo\n"
+					+ "4 - Realizar Devoluçao\n"
+					+ "5 - Relatorio de emprestimos\n"
+					+ "6 - Relatorio de devoluçao\n"
+					+ "7 - Mostrar Funcionarios\n"
+					+ "8 - Mostrar Livros \n"
+					+ "9 - Mostrar Alunos \n"
+					+ "10 - Imprimir Multa individual \n"
+					+ "0 - SAIR\n");
+			op = scan.nextInt();
+			
+			
+			System.out.println("------------------------------------------------\n\n");
+
+
+		switch(op) {
+		
+		case 1:
+			System.out.printf("Qual tipo de usuario\n"
+					+ "1 - Aluno\n"
+					+ "2 - Professor\n"
+					+ "3 - Funcionario\n");
+			
+			busca1 = scan.nextInt();
+
+			if(busca1==1){
+				System.out.println("Digite a matrícula do aluno:");
+				int matricula = scan.nextInt();
+				System.out.println("Digite o nome do aluno:");
+				String nome = scan.next();
+				System.out.println("Digite o endereço do aluno:");
+				String endereco = scan.next();
+				System.out.println("Digite o curso do aluno:");
+				String curso = scan.next();
+				System.out.println("Digite a data de ingresso do aluno:");
+				String dataIngresso = scan.next();
+				
+				Aluno aluno = new Aluno(matricula, nome, endereco, curso, dataIngresso, 0);
+				arquivo.escreve("aluno", aluno);
+				
+				
+				//escrever planilha aluno
+				
+			}else if (busca1==2) {
+				System.out.println("Digite a matrícula do professor:");
+				int matricula = scan.nextInt();
+				System.out.println("Digite o nome do professor:");
+				String nome = scan.next();
+				System.out.println("Digite o endereço do professor:");
+				String endereco = scan.next();
+				System.out.println("Digite a data de ingresso do professor:");
+				String dataIngresso = scan.next();
+				System.out.println("Digite o setor do professor:");
+				String setor = scan.next();
+				
+				Professor professor = new Professor(matricula, nome, endereco, dataIngresso, setor);
+				arquivo.escreve("aluno", professor);
+				
+				//escrever planilha professor
+
+				
+			}else if (busca1==3) {
+				System.out.println("Digite a matrícula do funcionário:");
+				int matricula = scan.nextInt();
+				System.out.println("Digite o nome do funcionário:");
+				String nome = scan.next();
+				System.out.println("Digite o endereço do funcionário:");
+				String endereco = scan.next();
+				System.out.println("Digite a data de ingresso do funcionário:");
+				String dataIngresso = scan.next();
+				System.out.println("Digite o setor do funcionário:");
+				String setor = scan.next();
+				System.out.println("Digite o login do funcionário:");
+				String login = scan.next();
+				System.out.println("Digite a senha do funcionario:");
+				String senha = scan.next();
+				
+				Funcionario funcionario = new Funcionario(matricula, nome, endereco, dataIngresso, setor, login, senha);
+				arquivo.escreve("aluno", funcionario);
+				
+				//escrever planilha funcionario
+				
+
+			}else {
+				System.out.printf("Opcao invalida !!");
+				
+			}
+	
+		
+			break;
+		
+		case 2:
+			
+			
+			
+			break;
+		
+				
+		case 3:
+			
+		
+			break;
+			
+		case 4:
+			
+			break;
+
+		case 5:
+
+	
+			break;
+
+		case 6:
+			
+			break;
+			
+		default:
+			
+			System.out.println("Escolha invalida, digite novamente!! \n");
+				
+		}
+	
+	
+		}while(exit!=0);
+
+		
+		System.out.printf("FIM DO PROGRAMA \n");
+
+	}
+
+}

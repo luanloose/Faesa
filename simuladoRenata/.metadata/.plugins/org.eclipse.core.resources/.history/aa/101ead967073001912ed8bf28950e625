@@ -1,0 +1,39 @@
+package fila;
+
+public class FilaCircular {
+	private Item [] info;
+	private int frente;
+	private int tras;
+	private int tamanho;
+
+	public FilaCircular(int qte){
+		this.frente = 0;
+		this.tras = 0;
+		this.tamanho = 0;
+		this.info = new Item [qte];
+	}
+	public Item getInfo(){
+		return this.info[this.frente];
+	}
+	public int getFrente(){
+		return this.frente;
+	}
+	public int getTras(){
+		return this.tras;
+	}
+	public int getTamanho(){
+		return this.tamanho;
+	}
+	public boolean eVazia(){
+		return (this.tamanho == 0);
+	}
+	public boolean eCheia(){
+		return (this.tamanho == this.info.length);
+	}
+	
+	
+	
+	
+}
+
+

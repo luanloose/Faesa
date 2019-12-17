@@ -1,0 +1,236 @@
+package pacote;
+
+import java.util.Scanner;
+
+public class Principal {
+
+	public static void main(String[] args) {
+
+		int exit = 1;
+		int op;
+		Scanner scan = new Scanner(System.in);
+		int busca1 = 0;
+		Arquivos arquivo = new Arquivos();
+		
+		
+		do {
+
+			System.out.printf("Escolha uma opcao de 1 a 10 e aperte ENTER: \n" 
+					+ "1 - Cadastrar Usuario\n" // ok
+					+ "2 - Cadastrar Item\n" // ok
+					+ "3 - Realizar Emprestimo\n" //ok
+					+ "4 - Realizar Devoluçao\n" 
+					+ "5 - Relatorio de emprestimos\n"
+					+ "6 - Relatorio de devoluçao\n" 
+					+ "7 - Mostrar Funcionarios\n" //ok
+					+ "8 - Mostrar Livros \n"//ok
+					+ "9 - Mostrar Alunos \n" //ok
+					+ "10 - Imprimir Multa individual \n" 
+					+ "0 - SAIR\n");//ok
+			op = scan.nextInt();
+
+			System.out.println("------------------------------------------------\n\n");
+
+			switch (op) {
+			
+			case 0:
+				System.out.println("Obrigado por usar o programa!");
+				exit = 0;
+				
+				break;
+
+			case 1:
+
+				System.out.printf("Qual tipo de usuario\n" + "1 - Aluno\n" + "2 - Professor\n" + "3 - Funcionario\n");
+
+				busca1 = scan.nextInt();
+
+				if (busca1 == 1) {
+
+					// escrever planilha aluno
+
+					System.out.println("Digite a matrícula do aluno:");
+					int matricula = scan.nextInt();
+					System.out.println("Digite o nome do aluno:");
+					String nome = scan.next();
+					System.out.println("Digite o endereço do aluno:");
+					String endereco = scan.next();
+					System.out.println("Digite o curso do aluno:");
+					String curso = scan.next();
+					System.out.println("Digite a data de ingresso do aluno:");
+					String dataIngresso = scan.next();
+
+					Aluno aluno = new Aluno(matricula, nome, endereco, curso, dataIngresso, 0);
+					arquivo.escreve("aluno", aluno);
+
+				} else if (busca1 == 2) {
+					// escrever planilha professor
+
+					System.out.println("Digite a matrícula do professor:");
+					int matricula = scan.nextInt();
+					System.out.println("Digite o nome do professor:");
+					String nome = scan.next();
+					System.out.println("Digite o endereço do professor:");
+					String endereco = scan.next();
+					System.out.println("Digite a data de ingresso do professor:");
+					String dataIngresso = scan.next();
+					System.out.println("Digite o setor do professor:");
+					String setor = scan.next();
+
+					Professor professor = new Professor(matricula, nome, endereco, dataIngresso, setor);
+					arquivo.escreve("professor", professor);
+
+				} else if (busca1 == 3) {
+
+					// escrever planilha funcionario
+
+					System.out.println("Digite a matrícula do funcionário:");
+					int matricula = scan.nextInt();
+					System.out.println("Digite o nome do funcionário:");
+					String nome = scan.next();
+					System.out.println("Digite o endereço do funcionário:");
+					String endereco = scan.next();
+					System.out.println("Digite a data de ingresso do funcionário:");
+					String dataIngresso = scan.next();
+					System.out.println("Digite o setor do funcionário:");
+					String setor = scan.next();
+					System.out.println("Digite o login do funcionário:");
+					String login = scan.next();
+					System.out.println("Digite a senha do funcionario:");
+					String senha = scan.next();
+
+					Funcionario funcionario = new Funcionario(matricula, nome, endereco, dataIngresso, setor, login,
+							senha);
+					arquivo.escreve("funcionario", funcionario);
+
+				} else {
+
+					System.out.printf("Opcao invalida !!");
+
+				}
+
+				break;
+
+			case 2:
+
+				System.out.printf("Qual tipo de Item\n" + "1 - Livro\n" + "2 - Periodico\n");
+
+				busca1 = scan.nextInt();
+
+				if (busca1 == 1) {
+
+					// escrever planilha livro
+
+					System.out.println("Digite o codigo do livro:");
+					int codigo = scan.nextInt();
+					System.out.println("Digite o autor do livro:");
+					String autor = scan.next();
+					System.out.println("Digite o titulo do livro:");
+					String titulo = scan.next();
+					System.out.println("Digite o issn do livro:");
+					String issn = scan.next();
+					System.out.println("Digite o tipo do livro:");
+					char tipo = scan.next().charAt(0);
+					System.out.println("Digite a editora do livro:");
+					String editora = scan.next();
+					System.out.println("Digite o dataPublicacao do livro:");
+					int dataPublic = scan.nextInt();
+
+					Livro livro = new Livro(codigo, autor, titulo, issn, tipo, editora, dataPublic);
+
+					arquivo.escreve("livro", livro);
+
+				} else if (busca1 == 2) {
+
+					// escrever planilha periodicos
+
+					System.out.println("Digite o codigo do periodico:");
+					int codigo = scan.nextInt();
+					System.out.println("Digite o autor do periodico:");
+					String autor = scan.next();
+					System.out.println("Digite o titulo do periodico:");
+					String titulo = scan.next();
+					System.out.println("Digite o issn do periodico:");
+					String issn = scan.next();
+					System.out.println("Digite o tipo do periodico:");
+					char tipo = scan.next().charAt(0);
+					System.out.println("Digite a editora do periodico:");
+					String editora = scan.next();
+					System.out.println("Digite o dataPublicacao do periodico:");
+					int dataPublic = scan.nextInt();
+					System.out.println("Digite o fator impacto do periodico:");
+					double fatorImpacto = scan.nextDouble();
+
+					Periodicos periodicos = new Periodicos(codigo, autor, titulo, issn, tipo, editora, dataPublic,
+							fatorImpacto);
+
+					arquivo.escreve("periodicos", periodicos);
+
+				} else {
+					System.out.printf("Opcao invalida !!");
+
+				}
+
+				break;
+
+			case 3:
+				// escrever planilha emprestimo
+
+				System.out.println("Digite codigo do emprestimo:");
+				int codEmprestimo = scan.nextInt();
+				System.out.println("Digite a matrícula do aluno:");
+				int matriculaAluno = scan.nextInt();
+				System.out.println("Digite a matrícula do funcionario:");
+				int matriculaFunc = scan.nextInt();
+				System.out.println("Digite a data do emprestimo:");
+				String dataEmprestimo = scan.next();
+				System.out.println("Digite a data da devolucao:");
+				String datadevol = scan.next();
+			
+
+				Emprestimo emprestimo = new Emprestimo(codEmprestimo, matriculaAluno, matriculaFunc, dataEmprestimo, datadevol);
+				arquivo.escreve("emprestimo", emprestimo);
+				break;
+
+			case 4:
+
+				break;
+
+			case 5:
+
+				break;
+
+			case 6:
+
+				break;
+			case 7:
+				
+				arquivo.ler("funcionario");
+
+				break;
+			case 8:
+				
+				arquivo.ler("livro");
+
+				break;
+			case 9:
+
+				arquivo.ler("aluno");
+				break;
+			case 10:
+
+				break;
+
+			default:
+
+				System.out.println("Escolha invalida, digite novamente!! \n");
+
+			}
+
+		} while (exit != 0);
+
+		System.out.printf("FIM DO PROGRAMA \n");
+
+	}
+
+}

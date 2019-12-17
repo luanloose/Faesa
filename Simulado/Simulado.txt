@@ -1,0 +1,9 @@
+A) Montagem do ambiente:
+1) Montar projeto Simulado.
+2) Copiar arquivos do Simulado.zip para dentro da pasta src do projeto Simulado.
+
+B) Exercícios:
+1) Adicionar um botão com label "F" na interface gráfica da calculadora.
+2) Tornar o botão responsivo (habilitar o evento ActionEvent)
+3) Criar uma operação matemática de logarítimo tipo "log A na base B".
+4) Mudar programaticamente a core e a fonte dos botões.
